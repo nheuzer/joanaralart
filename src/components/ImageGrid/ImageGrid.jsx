@@ -15,7 +15,6 @@ import { useHistory } from "react-router-dom";
 const ImageGrid = ({ images }) => {
   const history = useHistory();
   const openOnePicture = (item) => {
-    console.log(item);
     history.push(item.targetUrl);
   };
   return (

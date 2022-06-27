@@ -13,9 +13,7 @@ import CarouselComponent from "components/CarouselComponent/CarouselComponent";
 export default function App() {
   const [images, setImages] = useState([]);
   useEffect(() => {
-    console.log("effect");
     axios.get("http://localhost:3001/images").then((response) => {
-      console.log("promise fulfilled");
       setImages(response.data);
     });
   }, []);
