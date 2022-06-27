@@ -143,32 +143,6 @@ label:hover {
   background-color: rgb(241, 241, 241);
 }
 
-.split_page {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-}
-
-.left_page {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.right_page {
-  grid-column: 2;
-  grid-row: 1;
-  text-align: center;
-}
-
-.paint_picture {
-  width: 80%;
-}
-
-.total_center {
-  top: 50%;
-  left: 50%;
-}
-
 .center {
   text-align: center;
   top: 50%;
@@ -370,4 +344,44 @@ label:hover {
 }
 [data-popup="tooltip"].my-popup-overlay {
   background: transparent;
+}
+
+/*one picture*/
+.split_page {
+  display: flex;
+  justify-content: flex-start;
+}
+@media all and (max-width: 500px) {
+  .split_page {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+    flex-grow: 80%;
+  }
+}
+
+.left_page {
+  width: 66%;
+}
+@media all and (max-width: 500px) {
+  .left_page {
+    width: 100%;
+  }
+}
+@media all and (min-width: 800px) {
+  .paint_picture {
+    height: 66%;
+  }
+}
+
+.right_page {
+  text-align: center;
+  width: max-content;
+  padding-left: 10%;
+}
+.paint_picture {
+  max-width: 100%;
+  max-height: fit-content;
+}
+
+.total_center {
 }

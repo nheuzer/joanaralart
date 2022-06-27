@@ -16,7 +16,7 @@ const CarouselComponent = ({ images }) => {
           images.map((image) => {
             return (
               <div className="carousel_image" key={image.id}>
-                <img src={image.path} />
+                <img src={image.path} alt={image.title} />
               </div>
             );
           })}
