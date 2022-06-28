@@ -346,12 +346,25 @@ label:hover {
   background: transparent;
 }
 
-/*one picture*/
+/*one picture ---------------------------*/
 .split_page {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
   justify-content: flex-start;
+  grid-auto-columns: 1fr;
+  align-items: flex-end;
 }
-@media all and (max-width: 500px) {
+@media all and (max-width: 800px) {
+  .split_page {
+    /* On small screens, we are no longer using row direction but column */
+    grid-auto-flow: row;
+  }
+  .left_page {
+    padding-left: 10%;
+  }
+}
+
+@media all and (max-width: 499px) {
   .split_page {
     /* On small screens, we are no longer using row direction but column */
     flex-direction: column;
@@ -360,14 +373,14 @@ label:hover {
 }
 
 .left_page {
-  width: 66%;
+  width: 100%;
 }
 @media all and (max-width: 500px) {
   .left_page {
     width: 100%;
   }
 }
-@media all and (min-width: 800px) {
+@media all and (max-width: 800px) {
   .paint_picture {
     height: 66%;
   }
@@ -375,13 +388,16 @@ label:hover {
 
 .right_page {
   text-align: center;
-  width: max-content;
   padding-left: 10%;
 }
 .paint_picture {
-  max-width: 100%;
-  max-height: fit-content;
+  width: 100%;
 }
 
+@media all and (max-width: 800px) {
+  .paint_picture {
+    max-width: fit-content;
+  }
+}
 .total_center {
 }
