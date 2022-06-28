@@ -1,8 +1,8 @@
-import TitleContact from "components/Title/TitleContact";
+import TitleContact from "../Title/TitleContact.jsx";
 import React from "react";
 import { useState } from "react";
-import NavBar from "../NavBar/NavBar";
-import ButtonMailto from "components/ButtonMailTo/ButtonMailTo";
+import NavBar from "../NavBar/NavBar.jsx";
+import ButtonMailto from "../ButtonMailTo/ButtonMailTo.jsx";
 
 const Contact = () => {
   const to_mail = "privepianoschool@gmail.com";
@@ -17,7 +17,7 @@ const Contact = () => {
   };
 
   return (
-    <>
+    <div>
       <NavBar />
       <TitleContact />
       <div className="login-box">
@@ -51,7 +51,7 @@ const Contact = () => {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

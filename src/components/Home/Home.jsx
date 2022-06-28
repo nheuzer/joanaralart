@@ -1,7 +1,7 @@
 import React from "react";
-import Title from "../Title/Title";
-import ImageGrid from "../ImageGrid/ImageGrid";
-import NavBar from "components/NavBar/NavBar";
+import Title from "../Title/Title.jsx";
+import ImageGrid from "../ImageGrid/ImageGrid.jsx";
+import NavBar from "../NavBar/NavBar.jsx";
 const Home = ({ images }) => {
   return (
     <>

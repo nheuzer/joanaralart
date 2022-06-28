@@ -1,12 +1,12 @@
 import React from "react";
-import NavBar from "../NavBar/NavBar.jsx";
+import CarouselComponent from "./components/CarouselComponent/CarouselComponent.jsx";
+import Contact from "./components/Contact/Contact.jsx";
+import Home from "./components/Home/Home.jsx";
+import PaintDetails from "./components/PaintDetails/PaintDetails.jsx";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./index.css";
 
-const PaintDetails = () => {
-  const path = window.location.href;
-  let id = path.substr(-2);
-  if (id.charAt(0) === "/") {
-    id = id.substring(1);
-  }
+const App = () => {
   const images = [
     {
       id: 0,
@@ -44,32 +44,30 @@ const PaintDetails = () => {
       id: 4,
       path: "/pictures/picture_5.jpg",
       title: "picture 5",
-      description:
-        "Iis igitur est difficilius satis facere, qui se Latina scripta dicunt contemnere. in quibus hoc primum est in quo admirer, cur in gravissimis rebus non delectet eos sermo patrius, cum idem fabellas Latinas ad verbum e Graecis expressas non inviti legant. quis enim tam inimicus paene nomini Romano est, qui Ennii Medeam aut Antiopam Pacuvii spernat aut reiciat, quod se isdem Euripidis fabulis delectari dicat, Latinas litteras oderit?",
       targetUrl: "/paint/4",
     },
   ];
-  const paint = images.filter((p) => p.id === parseInt(id))[0];
+
   return (
-    <>
-      <NavBar />
-      <div className="split_page">
-        <div className="left_page">
-          <img
-            src={paint.path}
-            alt={paint.description}
-            className="paint_picture"
-          />
-        </div>
-        <div className="right_page">
-          <h1>{paint.title}</h1>
-          <br />
-          <br />
-          <p className="total_center">{paint.description}</p>
-        </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/paint/:id">
+            <PaintDetails />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/carousel/:id">
+            <CarouselComponent images={images} />
+          </Route>
+          <Route path="/">
+            <Home images={images} />
+          </Route>
+        </Switch>
       </div>
-    </>
+    </Router>
   );
 };
 
-export default PaintDetails;
+export default App;

@@ -1,4 +1,4 @@
-import CarouselTool from "components/CarouselTool/CarouselTool";
+import CarouselTool from "../CarouselTool/CarouselTool.jsx";
 import React from "react";
 import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
